@@ -18,7 +18,7 @@ function onInputSearch () {
 
     const textInputValue = inputSearch.value.trim();
 
-    if (textInputValue  === " ") {
+    if (textInputValue  === "") {
         return;
     } else {
 
@@ -38,6 +38,11 @@ function onInputSearch () {
         if (chosenCountry.length === 1) {
             renderInfoCountries(chosenCountry);
         }
+
+        if (chosenCountry.length === 0) {
+            Notiflix.Notify.failure('Oops, there is no country with that name')
+        }
+
         })
       .catch(onCatchError);
     }
